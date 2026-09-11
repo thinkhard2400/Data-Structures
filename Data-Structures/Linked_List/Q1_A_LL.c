@@ -26,6 +26,7 @@ typedef struct _linkedlist{
 
 //You should not change the prototype of this function
 int insertSortedLL(LinkedList *ll, int item);
+
 void printList(LinkedList *ll);
 void removeAllItems(LinkedList *ll);
 ListNode *findNode(LinkedList *ll, int index);
