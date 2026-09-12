@@ -116,12 +116,47 @@ int main()
 
 void createQueueFromLinkedList(LinkedList *ll, Queue *q)
 {
-	/* add your code here */
+	if(ll == NULL)
+        return;
+
+    if (q != NULL)
+        removeAllItemsFromQueue(q);
+
+    ListNode* cur;
+    cur = ll->head;
+
+    while (cur != NULL)
+    {
+        enqueue(q, cur->item);
+        cur = cur->next;
+    }
 }
 
 void removeOddValues(Queue *q)
 {
-	/* add your code here */
+    if (q == NULL)
+        return;
+
+    LinkedList ll = q->ll;
+    ListNode* cur = ll.head;
+    ListNode* tmp;
+
+    int index = 0;
+
+    while (cur != NULL)
+    {
+        if ((cur->item)%2 != 0)// 홀수
+        {
+            tmp = cur->next;
+            removeNode(&(q->ll), index);
+            cur = tmp;
+        }
+        else
+        {
+            cur = cur->next;
+            index++;
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////
